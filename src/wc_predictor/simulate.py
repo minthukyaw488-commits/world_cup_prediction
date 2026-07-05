@@ -3,6 +3,10 @@
 Usage:
     python -m wc_predictor.simulate [--runs 10000] [--teams data/wc2026_teams.csv]
 
+    # Or simulate only a knockout bracket (2/4/8/16/32 teams in bracket
+    # order, adjacent rows meet in round one) — handy mid-tournament:
+    python -m wc_predictor.simulate --knockout data/example_r16_bracket.csv
+
 Format modelled: 12 groups of 4; group winners, runners-up and the 8 best
 third-placed teams advance to a round of 32, then straight knockout. The
 round-of-32 bracket uses a fixed seeded template (winners vs thirds/
@@ -23,10 +27,18 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from .data import load_teams
+from .data import canonical_team, load_teams
 from .elo import CONFEDERATION_PRIORS, BASE_RATING
 
 STAGES = ["R32", "R16", "QF", "SF", "final", "champion"]
+
+KNOCKOUT_STAGES = {
+    32: ["R32", "R16", "QF", "SF", "final", "champion"],
+    16: ["R16", "QF", "SF", "final", "champion"],
+    8: ["QF", "SF", "final", "champion"],
+    4: ["SF", "final", "champion"],
+    2: ["final", "champion"],
+}
 
 # Round-of-32 template. W=group winner, R=runner-up, T=third (ranked 1-8 by
 # group-stage record). Winners paired with thirds; runners-up paired together.
@@ -157,14 +169,90 @@ def team_ratings(teams: pd.DataFrame, model: dict) -> dict[str, float]:
     return ratings
 
 
+def perturbed(elo: dict[str, float], noise: float, rng: np.random.Generator) -> dict[str, float]:
+    """Per-run rating perturbation, reflecting uncertainty about true strength."""
+    if noise <= 0:
+        return elo
+    return {t: r + rng.normal(0.0, noise) for t, r in elo.items()}
+
+
+def run_knockout_simulation(
+    bracket_csv: str,
+    model_path: str,
+    runs: int = 10000,
+    seed: int = 42,
+    rating_noise: float = 0.0,
+) -> pd.DataFrame:
+    """Simulate a pure knockout bracket (teams listed in bracket order)."""
+    bracket = pd.read_csv(bracket_csv, comment="#")
+    if "team" not in bracket.columns:
+        raise ValueError(f"{bracket_csv} must have a 'team' column")
+    bracket["team"] = bracket["team"].map(canonical_team)
+    field = bracket["team"].tolist()
+    if len(field) not in KNOCKOUT_STAGES:
+        raise ValueError(
+            f"Bracket must have 2/4/8/16/32 teams, got {len(field)}"
+        )
+    if len(set(field)) != len(field):
+        raise ValueError("Bracket contains duplicate teams")
+    stages = KNOCKOUT_STAGES[len(field)]
+
+    model = joblib.load(model_path)
+    rng = np.random.default_rng(seed)
+    sampler = MatchSampler(model, rng)
+    state = model["state"]
+    overrides = {}
+    if "rating_override" in bracket.columns:
+        overrides = {
+            row.team: float(row.rating_override)
+            for row in bracket.itertuples(index=False)
+            if pd.notna(row.rating_override)
+        }
+    base_elo = {t: overrides.get(t, state.rating(t)) for t in field}
+
+    counts = {t: dict.fromkeys(stages, 0) for t in field}
+    stage_rank = {s: i for i, s in enumerate(stages)}
+    for _ in range(runs):
+        elo = perturbed(base_elo, rating_noise, rng)
+        rnd = list(field)
+        reached = {t: stages[0] for t in rnd}
+        for stage in stages[1:-1]:
+            rnd = [
+                sampler.knockout_winner(rnd[i], rnd[i + 1], elo)
+                for i in range(0, len(rnd), 2)
+            ]
+            for t in rnd:
+                reached[t] = stage
+        champion = sampler.knockout_winner(rnd[0], rnd[1], elo)
+        reached[champion] = "champion"
+        for team, stage in reached.items():
+            for s in stages[: stage_rank[stage] + 1]:
+                counts[team][s] += 1
+
+    return pd.DataFrame(
+        [
+            {
+                "team": t,
+                "rating": round(base_elo[t], 1),
+                **{f"P({s})": counts[t][s] / runs for s in stages[1:]},
+            }
+            for t in field
+        ]
+    ).sort_values("P(champion)", ascending=False).reset_index(drop=True)
+
+
 def run_simulation(
-    teams_csv: str, model_path: str, runs: int = 10000, seed: int = 42
+    teams_csv: str,
+    model_path: str,
+    runs: int = 10000,
+    seed: int = 42,
+    rating_noise: float = 0.0,
 ) -> pd.DataFrame:
     teams = load_teams(teams_csv)
     model = joblib.load(model_path)
     rng = np.random.default_rng(seed)
     sampler = MatchSampler(model, rng)
-    elo = team_ratings(teams, model)
+    base_elo = team_ratings(teams, model)
 
     groups: dict[str, list[str]] = defaultdict(list)
     for row in teams.itertuples(index=False):
@@ -175,9 +263,10 @@ def run_simulation(
     if len(groups) != 12:
         raise ValueError(f"Expected 12 groups, found {len(groups)}")
 
-    counts = {t: dict.fromkeys(STAGES, 0) for t in elo}
+    counts = {t: dict.fromkeys(STAGES, 0) for t in base_elo}
     stage_rank = {s: i for i, s in enumerate(STAGES)}
     for _ in range(runs):
+        elo = perturbed(base_elo, rating_noise, rng)
         reached = simulate_tournament(groups, elo, sampler)
         for team, stage in reached.items():
             for s in STAGES[: stage_rank[stage] + 1]:
@@ -188,10 +277,10 @@ def run_simulation(
             {
                 "team": t,
                 "group": teams.loc[teams["team"] == t, "group"].iloc[0],
-                "rating": round(elo[t], 1),
+                "rating": round(base_elo[t], 1),
                 **{f"P({s})": counts[t][s] / runs for s in STAGES},
             }
-            for t in elo
+            for t in base_elo
         ]
     ).sort_values("P(champion)", ascending=False).reset_index(drop=True)
     return result
@@ -200,13 +289,33 @@ def run_simulation(
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--teams", default="data/wc2026_teams.csv")
+    parser.add_argument(
+        "--knockout",
+        default=None,
+        help="CSV of 2/4/8/16/32 teams in bracket order; simulates only the "
+        "knockout phase instead of the full tournament",
+    )
     parser.add_argument("--model", default="models/model.pkl")
     parser.add_argument("--runs", type=int, default=10000)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--rating-noise",
+        type=float,
+        default=0.0,
+        help="std-dev of per-run Gaussian rating perturbation (Elo points); "
+        "expresses uncertainty about true team strength",
+    )
     parser.add_argument("--out", default=None, help="optional CSV path for full results")
     args = parser.parse_args(argv)
 
-    result = run_simulation(args.teams, args.model, args.runs, args.seed)
+    if args.knockout:
+        result = run_knockout_simulation(
+            args.knockout, args.model, args.runs, args.seed, args.rating_noise
+        )
+    else:
+        result = run_simulation(
+            args.teams, args.model, args.runs, args.seed, args.rating_noise
+        )
     pd.set_option("display.width", 140)
     with pd.option_context("display.float_format", "{:.3f}".format):
         print(result.head(20).to_string(index=False))

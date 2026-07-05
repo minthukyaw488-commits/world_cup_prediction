@@ -1,0 +1,21 @@
+# Example knockout bracket (ILLUSTRATIVE — not the real 2026 draw).
+# Teams in bracket order: adjacent rows meet in the first round, the winner
+# of pair 1 plays the winner of pair 2, and so on. 2/4/8/16/32 teams allowed.
+# Optional rating_override column pins a team's strength.
+team,rating_override
+France,
+Mexico,
+Brazil,
+Croatia,
+Argentina,
+Japan,
+England,
+Uruguay,
+Spain,
+Morocco,
+Netherlands,
+United States,
+Portugal,
+Colombia,
+Germany,
+Belgium,

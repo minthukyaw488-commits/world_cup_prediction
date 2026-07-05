@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: pip install -e . pytest
+      - run: python -m pytest -q
+      - name: Train smoke test
+        run: python -m wc_predictor.train --model-out models/model.pkl
+      - name: Simulation smoke test
+        run: |
+          python -m wc_predictor.simulate --runs 200
+          python -m wc_predictor.simulate --knockout data/example_r16_bracket.csv --runs 200

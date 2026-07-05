@@ -40,6 +40,7 @@ def build_features(
     matches: pd.DataFrame,
     initial_ratings: dict[str, float] | None = None,
     home_advantage: float | None = None,
+    mean_reversion_rate: float | None = None,
 ) -> tuple[pd.DataFrame, "FeatureState"]:
     """Compute model features for every match, chronologically.
 
@@ -47,7 +48,11 @@ def build_features(
     ``prior_matches`` columns) and a :class:`FeatureState` snapshot that can
     generate features for future fixtures.
     """
-    kwargs = {} if home_advantage is None else {"home_advantage": home_advantage}
+    kwargs = {}
+    if home_advantage is not None:
+        kwargs["home_advantage"] = home_advantage
+    if mean_reversion_rate is not None:
+        kwargs["mean_reversion_rate"] = mean_reversion_rate
     with_elo, elo = run_elo(matches, initial=initial_ratings, **kwargs)
 
     played: dict[str, int] = defaultdict(int)

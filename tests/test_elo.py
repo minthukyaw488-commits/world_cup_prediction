@@ -55,6 +55,24 @@ def test_draw_favours_underdog():
     assert elo.get("W") > 1400
 
 
+def test_mean_reversion_after_inactivity():
+    import pandas as pd
+
+    elo = EloRatings(initial={"A": 1500}, mean_reversion_rate=0.2)
+    elo.ratings["A"] = 1700
+    elo.last_played["A"] = pd.Timestamp("2010-07-01")
+    # 5 years idle: excess over prior shrinks by 0.8**4.
+    elo._apply_inactivity_decay("A", pd.Timestamp("2015-07-01"))
+    expected = 1500 + 200 * 0.8 ** ((pd.Timestamp("2015-07-01") - pd.Timestamp("2010-07-01")).days / 365.25 - 1)
+    assert elo.get("A") == pytest.approx(expected)
+    # Short gaps and rate=0 leave ratings untouched.
+    elo2 = EloRatings(mean_reversion_rate=0.2)
+    elo2.ratings["B"] = 1700
+    elo2.last_played["B"] = pd.Timestamp("2021-01-01")
+    elo2._apply_inactivity_decay("B", pd.Timestamp("2021-11-01"))
+    assert elo2.get("B") == 1700
+
+
 def test_home_advantage_reduces_home_gain():
     neutral = EloRatings()
     neutral.update_match("A", "B", 1, 0, "Friendly", neutral=True)

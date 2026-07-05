@@ -20,6 +20,14 @@ python -m pytest            # run the test suite
 python -m wc_predictor.train                      # train, prints backtest metrics
 python -m wc_predictor.predict "Argentina" "France"
 python -m wc_predictor.simulate --runs 10000 --out output/wc2026_forecast.csv
+
+# Mid-tournament? Simulate just a knockout bracket (2/4/8/16/32 teams,
+# listed in bracket order — adjacent rows meet in round one):
+python -m wc_predictor.simulate --knockout data/example_r16_bracket.csv
+
+# Express uncertainty about team strength (Elo points of per-run noise;
+# flattens overconfident probabilities):
+python -m wc_predictor.simulate --runs 10000 --rating-noise 50
 ```
 
 ## Results (bundled data)
@@ -29,14 +37,20 @@ on earlier tournaments and scored on that year:
 
 | Model                         | Mean log loss | Mean accuracy |
 |-------------------------------|---------------|---------------|
-| Logistic regression (selected)| **1.041**     | **52.9%**     |
-| Gradient boosting             | 1.123         | 45.2%         |
-| Class-frequency baseline      | 1.079         | 40.7%         |
+| Logistic regression (selected)| **1.045**     | **51.5%**     |
+| Gradient boosting             | 1.184         | 45.9%         |
+| Class-frequency baseline      | 1.092         | 41.5%         |
 
 Test years: 2010, 2014, 2018, 2022. The model beats the baseline in three of
 the four years; 2022 (Saudi Arabia over Argentina, Japan over Germany and
 Spain, Morocco to the semis) is the exception — no rating-based model looked
 good in Qatar.
+
+A negative result worth knowing: regressing idle teams' Elo toward the mean
+between tournaments (`mean_reversion_rate` in `elo.py`) *hurt* backtest log
+loss monotonically (0.0 → 1.045, 0.1 → 1.057, 0.3 → 1.080), so it ships
+disabled — even a four-year-old rating carries real signal. Rolling-form
+features were dropped for the same reason.
 
 ## Data
 
@@ -54,8 +68,8 @@ Two data sources, checked in this order:
    Training automatically switches to it when present, which gives every team
    a proper rating history (qualifiers, continental cups, friendlies).
 
-2. **`data/wc_matches.csv`** *(bundled fallback)* — all 448 World Cup finals
-   matches 1998–2022, so everything works offline out of the box.
+2. **`data/wc_matches.csv`** *(bundled fallback)* — all 552 World Cup finals
+   matches 1990–2022, so everything works offline out of the box.
 
    ⚠️ **Provenance**: the bundled file was compiled from public match records
    by an AI assistant working offline. Spot-checks are encouraged; isolated
@@ -109,15 +123,16 @@ data/*.csv ──► data.load_matches ──► elo.run_elo ──► features.
 ## Project layout
 
 ```
-data/                  bundled matches, 2026 teams file
+data/                  bundled matches, 2026 teams file, example bracket
 scripts/               download_full_data.py
 src/wc_predictor/      data, elo, features, train, predict, simulate
-tests/                 17 tests (Elo math, leakage, training, simulation)
+tests/                 20 tests (Elo math, leakage, training, simulation)
+.github/workflows/     CI: pytest + train/simulate smoke tests
 ```
 
 ## Limitations
 
-- Trained on 448 matches out of the box — upgrade to the full dataset for
+- Trained on 552 matches out of the box — upgrade to the full dataset for
   serious use.
 - The 2026 group draw and playoff qualifiers in `wc2026_teams.csv` are
   placeholders to edit.
