@@ -1,0 +1,54 @@
+# FIFA World Cup 2026 — 48 teams, 12 groups of 4.
+# NOTE: group assignments below are ILLUSTRATIVE (pot-based), not the official
+# draw. Placeholder rows stand in for playoff winners decided in March 2026.
+# Edit this file to match the real groups/teams, and use rating_override to
+# pin a team's strength (in this project's Elo scale, ~1300-1800).
+team,group,confederation,rating_override
+Mexico,A,CONCACAF,
+South Korea,A,AFC,
+South Africa,A,CAF,
+UEFA Playoff A winner,A,UEFA,1550
+Canada,B,CONCACAF,
+Switzerland,B,UEFA,
+Qatar,B,AFC,
+IC Playoff 1 winner,B,TBD,1400
+Spain,C,UEFA,
+Colombia,C,CONMEBOL,
+Egypt,C,CAF,
+New Zealand,C,OFC,
+United States,D,CONCACAF,
+Croatia,D,UEFA,
+Saudi Arabia,D,AFC,
+Cape Verde,D,CAF,
+Argentina,E,CONMEBOL,
+Morocco,E,CAF,
+Norway,E,UEFA,
+Jordan,E,AFC,
+France,F,UEFA,
+Japan,F,AFC,
+Panama,F,CONCACAF,
+UEFA Playoff B winner,F,UEFA,1550
+England,G,UEFA,
+Uruguay,G,CONMEBOL,
+Algeria,G,CAF,
+IC Playoff 2 winner,G,TBD,1400
+Brazil,H,CONMEBOL,
+Austria,H,UEFA,
+Tunisia,H,CAF,
+Curacao,H,CONCACAF,
+Portugal,I,UEFA,
+Iran,I,AFC,
+Paraguay,I,CONMEBOL,
+Haiti,I,CONCACAF,
+Netherlands,J,UEFA,
+Senegal,J,CAF,
+Uzbekistan,J,AFC,
+UEFA Playoff C winner,J,UEFA,1550
+Belgium,K,UEFA,
+Ecuador,K,CONMEBOL,
+Ivory Coast,K,CAF,
+UEFA Playoff D winner,K,UEFA,1550
+Germany,L,UEFA,
+Australia,L,AFC,
+Scotland,L,UEFA,
+Ghana,L,CAF,

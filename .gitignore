@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+models/*.pkl
+data/full_international_results.csv
+output/
+.venv/
+venv/

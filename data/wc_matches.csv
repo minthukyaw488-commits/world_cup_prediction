@@ -1,0 +1,449 @@
+date,home_team,away_team,home_score,away_score,tournament,neutral
+1998-06-11,Brazil,Scotland,2,1,FIFA World Cup,TRUE
+1998-06-11,Morocco,Norway,2,2,FIFA World Cup,TRUE
+1998-06-11,Italy,Chile,2,2,FIFA World Cup,TRUE
+1998-06-11,Cameroon,Austria,1,1,FIFA World Cup,TRUE
+1998-06-11,Saudi Arabia,Denmark,0,1,FIFA World Cup,TRUE
+1998-06-11,France,South Africa,3,0,FIFA World Cup,FALSE
+1998-06-11,Paraguay,Bulgaria,0,0,FIFA World Cup,TRUE
+1998-06-11,Spain,Nigeria,2,3,FIFA World Cup,TRUE
+1998-06-11,South Korea,Mexico,1,3,FIFA World Cup,TRUE
+1998-06-11,Netherlands,Belgium,0,0,FIFA World Cup,TRUE
+1998-06-11,Yugoslavia,Iran,1,0,FIFA World Cup,TRUE
+1998-06-11,Germany,United States,2,0,FIFA World Cup,TRUE
+1998-06-11,England,Tunisia,2,0,FIFA World Cup,TRUE
+1998-06-11,Romania,Colombia,1,0,FIFA World Cup,TRUE
+1998-06-11,Argentina,Japan,1,0,FIFA World Cup,TRUE
+1998-06-11,Jamaica,Croatia,1,3,FIFA World Cup,TRUE
+1998-06-17,Scotland,Norway,1,1,FIFA World Cup,TRUE
+1998-06-17,Brazil,Morocco,3,0,FIFA World Cup,TRUE
+1998-06-17,Chile,Austria,1,1,FIFA World Cup,TRUE
+1998-06-17,Italy,Cameroon,3,0,FIFA World Cup,TRUE
+1998-06-17,France,Saudi Arabia,4,0,FIFA World Cup,FALSE
+1998-06-17,South Africa,Denmark,1,1,FIFA World Cup,TRUE
+1998-06-17,Nigeria,Bulgaria,1,0,FIFA World Cup,TRUE
+1998-06-17,Spain,Paraguay,0,0,FIFA World Cup,TRUE
+1998-06-17,Belgium,Mexico,2,2,FIFA World Cup,TRUE
+1998-06-17,Netherlands,South Korea,5,0,FIFA World Cup,TRUE
+1998-06-17,Germany,Yugoslavia,2,2,FIFA World Cup,TRUE
+1998-06-17,United States,Iran,1,2,FIFA World Cup,TRUE
+1998-06-17,Colombia,Tunisia,1,0,FIFA World Cup,TRUE
+1998-06-17,Romania,England,2,1,FIFA World Cup,TRUE
+1998-06-17,Japan,Croatia,0,1,FIFA World Cup,TRUE
+1998-06-17,Argentina,Jamaica,5,0,FIFA World Cup,TRUE
+1998-06-23,Brazil,Norway,1,2,FIFA World Cup,TRUE
+1998-06-23,Scotland,Morocco,0,3,FIFA World Cup,TRUE
+1998-06-23,Italy,Austria,2,1,FIFA World Cup,TRUE
+1998-06-23,Chile,Cameroon,1,1,FIFA World Cup,TRUE
+1998-06-23,France,Denmark,2,1,FIFA World Cup,FALSE
+1998-06-23,South Africa,Saudi Arabia,2,2,FIFA World Cup,TRUE
+1998-06-23,Spain,Bulgaria,6,1,FIFA World Cup,TRUE
+1998-06-23,Nigeria,Paraguay,1,3,FIFA World Cup,TRUE
+1998-06-23,Belgium,South Korea,1,1,FIFA World Cup,TRUE
+1998-06-23,Netherlands,Mexico,2,2,FIFA World Cup,TRUE
+1998-06-23,Germany,Iran,2,0,FIFA World Cup,TRUE
+1998-06-23,United States,Yugoslavia,0,1,FIFA World Cup,TRUE
+1998-06-23,Colombia,England,0,2,FIFA World Cup,TRUE
+1998-06-23,Romania,Tunisia,1,1,FIFA World Cup,TRUE
+1998-06-23,Argentina,Croatia,1,0,FIFA World Cup,TRUE
+1998-06-23,Japan,Jamaica,1,2,FIFA World Cup,TRUE
+1998-06-28,Italy,Norway,1,0,FIFA World Cup,TRUE
+1998-06-28,Brazil,Chile,4,1,FIFA World Cup,TRUE
+1998-06-28,France,Paraguay,1,0,FIFA World Cup,FALSE
+1998-06-28,Nigeria,Denmark,1,4,FIFA World Cup,TRUE
+1998-06-28,Netherlands,Yugoslavia,2,1,FIFA World Cup,TRUE
+1998-06-28,Argentina,England,2,2,FIFA World Cup,TRUE
+1998-06-28,Germany,Mexico,2,1,FIFA World Cup,TRUE
+1998-06-28,Romania,Croatia,0,1,FIFA World Cup,TRUE
+1998-07-03,France,Italy,0,0,FIFA World Cup,FALSE
+1998-07-03,Brazil,Denmark,3,2,FIFA World Cup,TRUE
+1998-07-03,Netherlands,Argentina,2,1,FIFA World Cup,TRUE
+1998-07-03,Germany,Croatia,0,3,FIFA World Cup,TRUE
+1998-07-08,Brazil,Netherlands,1,1,FIFA World Cup,TRUE
+1998-07-08,France,Croatia,2,1,FIFA World Cup,FALSE
+1998-07-11,Netherlands,Croatia,1,2,FIFA World Cup,TRUE
+1998-07-12,France,Brazil,3,0,FIFA World Cup,FALSE
+2002-06-02,France,Senegal,0,1,FIFA World Cup,TRUE
+2002-06-02,Uruguay,Denmark,1,2,FIFA World Cup,TRUE
+2002-06-02,Paraguay,South Africa,2,2,FIFA World Cup,TRUE
+2002-06-02,Spain,Slovenia,3,1,FIFA World Cup,TRUE
+2002-06-02,Brazil,Turkey,2,1,FIFA World Cup,TRUE
+2002-06-02,China,Costa Rica,0,2,FIFA World Cup,TRUE
+2002-06-02,South Korea,Poland,2,0,FIFA World Cup,FALSE
+2002-06-02,United States,Portugal,3,2,FIFA World Cup,TRUE
+2002-06-02,Ireland,Cameroon,1,1,FIFA World Cup,TRUE
+2002-06-02,Germany,Saudi Arabia,8,0,FIFA World Cup,TRUE
+2002-06-02,Argentina,Nigeria,1,0,FIFA World Cup,TRUE
+2002-06-02,England,Sweden,1,1,FIFA World Cup,TRUE
+2002-06-02,Croatia,Mexico,0,1,FIFA World Cup,TRUE
+2002-06-02,Italy,Ecuador,2,0,FIFA World Cup,TRUE
+2002-06-02,Japan,Belgium,2,2,FIFA World Cup,FALSE
+2002-06-02,Russia,Tunisia,2,0,FIFA World Cup,TRUE
+2002-06-08,France,Uruguay,0,0,FIFA World Cup,TRUE
+2002-06-08,Denmark,Senegal,1,1,FIFA World Cup,TRUE
+2002-06-08,Spain,Paraguay,3,1,FIFA World Cup,TRUE
+2002-06-08,South Africa,Slovenia,1,0,FIFA World Cup,TRUE
+2002-06-08,Brazil,China,4,0,FIFA World Cup,TRUE
+2002-06-08,Costa Rica,Turkey,1,1,FIFA World Cup,TRUE
+2002-06-08,South Korea,United States,1,1,FIFA World Cup,FALSE
+2002-06-08,Portugal,Poland,4,0,FIFA World Cup,TRUE
+2002-06-08,Germany,Ireland,1,1,FIFA World Cup,TRUE
+2002-06-08,Cameroon,Saudi Arabia,1,0,FIFA World Cup,TRUE
+2002-06-08,Sweden,Nigeria,2,1,FIFA World Cup,TRUE
+2002-06-08,Argentina,England,0,1,FIFA World Cup,TRUE
+2002-06-08,Italy,Croatia,1,2,FIFA World Cup,TRUE
+2002-06-08,Mexico,Ecuador,2,1,FIFA World Cup,TRUE
+2002-06-08,Japan,Russia,1,0,FIFA World Cup,FALSE
+2002-06-08,Tunisia,Belgium,1,1,FIFA World Cup,TRUE
+2002-06-13,Denmark,France,2,0,FIFA World Cup,TRUE
+2002-06-13,Senegal,Uruguay,3,3,FIFA World Cup,TRUE
+2002-06-13,South Africa,Spain,2,3,FIFA World Cup,TRUE
+2002-06-13,Slovenia,Paraguay,1,3,FIFA World Cup,TRUE
+2002-06-13,Costa Rica,Brazil,2,5,FIFA World Cup,TRUE
+2002-06-13,Turkey,China,3,0,FIFA World Cup,TRUE
+2002-06-13,South Korea,Portugal,1,0,FIFA World Cup,FALSE
+2002-06-13,Poland,United States,3,1,FIFA World Cup,TRUE
+2002-06-13,Cameroon,Germany,0,2,FIFA World Cup,TRUE
+2002-06-13,Saudi Arabia,Ireland,0,3,FIFA World Cup,TRUE
+2002-06-13,Sweden,Argentina,1,1,FIFA World Cup,TRUE
+2002-06-13,Nigeria,England,0,0,FIFA World Cup,TRUE
+2002-06-13,Mexico,Italy,1,1,FIFA World Cup,TRUE
+2002-06-13,Ecuador,Croatia,1,0,FIFA World Cup,TRUE
+2002-06-13,Japan,Tunisia,2,0,FIFA World Cup,FALSE
+2002-06-13,Belgium,Russia,3,2,FIFA World Cup,TRUE
+2002-06-16,Germany,Paraguay,1,0,FIFA World Cup,TRUE
+2002-06-16,Denmark,England,0,3,FIFA World Cup,TRUE
+2002-06-16,Sweden,Senegal,1,2,FIFA World Cup,TRUE
+2002-06-16,Spain,Ireland,1,1,FIFA World Cup,TRUE
+2002-06-16,Mexico,United States,0,2,FIFA World Cup,TRUE
+2002-06-16,Brazil,Belgium,2,0,FIFA World Cup,TRUE
+2002-06-16,Japan,Turkey,0,1,FIFA World Cup,FALSE
+2002-06-16,South Korea,Italy,2,1,FIFA World Cup,FALSE
+2002-06-21,England,Brazil,1,2,FIFA World Cup,TRUE
+2002-06-21,Germany,United States,1,0,FIFA World Cup,TRUE
+2002-06-21,South Korea,Spain,0,0,FIFA World Cup,FALSE
+2002-06-21,Senegal,Turkey,0,1,FIFA World Cup,TRUE
+2002-06-25,South Korea,Germany,0,1,FIFA World Cup,FALSE
+2002-06-25,Brazil,Turkey,1,0,FIFA World Cup,TRUE
+2002-06-29,South Korea,Turkey,2,3,FIFA World Cup,FALSE
+2002-06-30,Germany,Brazil,0,2,FIFA World Cup,TRUE
+2006-06-10,Germany,Costa Rica,4,2,FIFA World Cup,FALSE
+2006-06-10,Poland,Ecuador,0,2,FIFA World Cup,TRUE
+2006-06-10,England,Paraguay,1,0,FIFA World Cup,TRUE
+2006-06-10,Trinidad and Tobago,Sweden,0,0,FIFA World Cup,TRUE
+2006-06-10,Argentina,Ivory Coast,2,1,FIFA World Cup,TRUE
+2006-06-10,Serbia,Netherlands,0,1,FIFA World Cup,TRUE
+2006-06-10,Mexico,Iran,3,1,FIFA World Cup,TRUE
+2006-06-10,Angola,Portugal,0,1,FIFA World Cup,TRUE
+2006-06-10,United States,Czech Republic,0,3,FIFA World Cup,TRUE
+2006-06-10,Italy,Ghana,2,0,FIFA World Cup,TRUE
+2006-06-10,Australia,Japan,3,1,FIFA World Cup,TRUE
+2006-06-10,Brazil,Croatia,1,0,FIFA World Cup,TRUE
+2006-06-10,South Korea,Togo,2,1,FIFA World Cup,TRUE
+2006-06-10,France,Switzerland,0,0,FIFA World Cup,TRUE
+2006-06-10,Spain,Ukraine,4,0,FIFA World Cup,TRUE
+2006-06-10,Tunisia,Saudi Arabia,2,2,FIFA World Cup,TRUE
+2006-06-16,Germany,Poland,1,0,FIFA World Cup,FALSE
+2006-06-16,Ecuador,Costa Rica,3,0,FIFA World Cup,TRUE
+2006-06-16,England,Trinidad and Tobago,2,0,FIFA World Cup,TRUE
+2006-06-16,Sweden,Paraguay,1,0,FIFA World Cup,TRUE
+2006-06-16,Argentina,Serbia,6,0,FIFA World Cup,TRUE
+2006-06-16,Netherlands,Ivory Coast,1,0,FIFA World Cup,TRUE
+2006-06-16,Mexico,Angola,0,0,FIFA World Cup,TRUE
+2006-06-16,Portugal,Iran,2,0,FIFA World Cup,TRUE
+2006-06-16,Czech Republic,Ghana,0,2,FIFA World Cup,TRUE
+2006-06-16,Italy,United States,1,1,FIFA World Cup,TRUE
+2006-06-16,Brazil,Australia,2,0,FIFA World Cup,TRUE
+2006-06-16,Japan,Croatia,0,0,FIFA World Cup,TRUE
+2006-06-16,France,South Korea,1,1,FIFA World Cup,TRUE
+2006-06-16,Togo,Switzerland,0,2,FIFA World Cup,TRUE
+2006-06-16,Spain,Tunisia,3,1,FIFA World Cup,TRUE
+2006-06-16,Saudi Arabia,Ukraine,0,4,FIFA World Cup,TRUE
+2006-06-21,Germany,Ecuador,3,0,FIFA World Cup,FALSE
+2006-06-21,Costa Rica,Poland,1,2,FIFA World Cup,TRUE
+2006-06-21,Sweden,England,2,2,FIFA World Cup,TRUE
+2006-06-21,Paraguay,Trinidad and Tobago,2,0,FIFA World Cup,TRUE
+2006-06-21,Netherlands,Argentina,0,0,FIFA World Cup,TRUE
+2006-06-21,Ivory Coast,Serbia,3,2,FIFA World Cup,TRUE
+2006-06-21,Portugal,Mexico,2,1,FIFA World Cup,TRUE
+2006-06-21,Iran,Angola,1,1,FIFA World Cup,TRUE
+2006-06-21,Czech Republic,Italy,0,2,FIFA World Cup,TRUE
+2006-06-21,Ghana,United States,2,1,FIFA World Cup,TRUE
+2006-06-21,Japan,Brazil,1,4,FIFA World Cup,TRUE
+2006-06-21,Croatia,Australia,2,2,FIFA World Cup,TRUE
+2006-06-21,Togo,France,0,2,FIFA World Cup,TRUE
+2006-06-21,Switzerland,South Korea,2,0,FIFA World Cup,TRUE
+2006-06-21,Saudi Arabia,Spain,0,1,FIFA World Cup,TRUE
+2006-06-21,Ukraine,Tunisia,1,0,FIFA World Cup,TRUE
+2006-06-25,Germany,Sweden,2,0,FIFA World Cup,FALSE
+2006-06-25,Argentina,Mexico,2,1,FIFA World Cup,TRUE
+2006-06-25,England,Ecuador,1,0,FIFA World Cup,TRUE
+2006-06-25,Portugal,Netherlands,1,0,FIFA World Cup,TRUE
+2006-06-25,Italy,Australia,1,0,FIFA World Cup,TRUE
+2006-06-25,Switzerland,Ukraine,0,0,FIFA World Cup,TRUE
+2006-06-25,Brazil,Ghana,3,0,FIFA World Cup,TRUE
+2006-06-25,Spain,France,1,3,FIFA World Cup,TRUE
+2006-06-30,Germany,Argentina,1,1,FIFA World Cup,FALSE
+2006-06-30,Italy,Ukraine,3,0,FIFA World Cup,TRUE
+2006-06-30,England,Portugal,0,0,FIFA World Cup,TRUE
+2006-06-30,Brazil,France,0,1,FIFA World Cup,TRUE
+2006-07-04,Germany,Italy,0,2,FIFA World Cup,FALSE
+2006-07-04,Portugal,France,0,1,FIFA World Cup,TRUE
+2006-07-08,Germany,Portugal,3,1,FIFA World Cup,FALSE
+2006-07-09,Italy,France,1,1,FIFA World Cup,TRUE
+2010-06-12,South Africa,Mexico,1,1,FIFA World Cup,FALSE
+2010-06-12,Uruguay,France,0,0,FIFA World Cup,TRUE
+2010-06-12,South Korea,Greece,2,0,FIFA World Cup,TRUE
+2010-06-12,Argentina,Nigeria,1,0,FIFA World Cup,TRUE
+2010-06-12,England,United States,1,1,FIFA World Cup,TRUE
+2010-06-12,Algeria,Slovenia,0,1,FIFA World Cup,TRUE
+2010-06-12,Germany,Australia,4,0,FIFA World Cup,TRUE
+2010-06-12,Serbia,Ghana,0,1,FIFA World Cup,TRUE
+2010-06-12,Netherlands,Denmark,2,0,FIFA World Cup,TRUE
+2010-06-12,Japan,Cameroon,1,0,FIFA World Cup,TRUE
+2010-06-12,Italy,Paraguay,1,1,FIFA World Cup,TRUE
+2010-06-12,New Zealand,Slovakia,1,1,FIFA World Cup,TRUE
+2010-06-12,Ivory Coast,Portugal,0,0,FIFA World Cup,TRUE
+2010-06-12,Brazil,North Korea,2,1,FIFA World Cup,TRUE
+2010-06-12,Honduras,Chile,0,1,FIFA World Cup,TRUE
+2010-06-12,Spain,Switzerland,0,1,FIFA World Cup,TRUE
+2010-06-17,South Africa,Uruguay,0,3,FIFA World Cup,FALSE
+2010-06-17,France,Mexico,0,2,FIFA World Cup,TRUE
+2010-06-17,Argentina,South Korea,4,1,FIFA World Cup,TRUE
+2010-06-17,Greece,Nigeria,2,1,FIFA World Cup,TRUE
+2010-06-17,Slovenia,United States,2,2,FIFA World Cup,TRUE
+2010-06-17,England,Algeria,0,0,FIFA World Cup,TRUE
+2010-06-17,Germany,Serbia,0,1,FIFA World Cup,TRUE
+2010-06-17,Ghana,Australia,1,1,FIFA World Cup,TRUE
+2010-06-17,Netherlands,Japan,1,0,FIFA World Cup,TRUE
+2010-06-17,Cameroon,Denmark,1,2,FIFA World Cup,TRUE
+2010-06-17,Slovakia,Paraguay,0,2,FIFA World Cup,TRUE
+2010-06-17,Italy,New Zealand,1,1,FIFA World Cup,TRUE
+2010-06-17,Brazil,Ivory Coast,3,1,FIFA World Cup,TRUE
+2010-06-17,Portugal,North Korea,7,0,FIFA World Cup,TRUE
+2010-06-17,Chile,Switzerland,1,0,FIFA World Cup,TRUE
+2010-06-17,Spain,Honduras,2,0,FIFA World Cup,TRUE
+2010-06-23,Mexico,Uruguay,0,1,FIFA World Cup,TRUE
+2010-06-23,South Africa,France,2,1,FIFA World Cup,FALSE
+2010-06-23,Nigeria,South Korea,2,2,FIFA World Cup,TRUE
+2010-06-23,Greece,Argentina,0,2,FIFA World Cup,TRUE
+2010-06-23,Slovenia,England,0,1,FIFA World Cup,TRUE
+2010-06-23,United States,Algeria,1,0,FIFA World Cup,TRUE
+2010-06-23,Ghana,Germany,0,1,FIFA World Cup,TRUE
+2010-06-23,Australia,Serbia,2,1,FIFA World Cup,TRUE
+2010-06-23,Denmark,Japan,1,3,FIFA World Cup,TRUE
+2010-06-23,Cameroon,Netherlands,1,2,FIFA World Cup,TRUE
+2010-06-23,Slovakia,Italy,3,2,FIFA World Cup,TRUE
+2010-06-23,Paraguay,New Zealand,0,0,FIFA World Cup,TRUE
+2010-06-23,Portugal,Brazil,0,0,FIFA World Cup,TRUE
+2010-06-23,North Korea,Ivory Coast,0,3,FIFA World Cup,TRUE
+2010-06-23,Chile,Spain,1,2,FIFA World Cup,TRUE
+2010-06-23,Switzerland,Honduras,0,0,FIFA World Cup,TRUE
+2010-06-27,Uruguay,South Korea,2,1,FIFA World Cup,TRUE
+2010-06-27,United States,Ghana,1,2,FIFA World Cup,TRUE
+2010-06-27,Germany,England,4,1,FIFA World Cup,TRUE
+2010-06-27,Argentina,Mexico,3,1,FIFA World Cup,TRUE
+2010-06-27,Netherlands,Slovakia,2,1,FIFA World Cup,TRUE
+2010-06-27,Brazil,Chile,3,0,FIFA World Cup,TRUE
+2010-06-27,Paraguay,Japan,0,0,FIFA World Cup,TRUE
+2010-06-27,Spain,Portugal,1,0,FIFA World Cup,TRUE
+2010-07-02,Netherlands,Brazil,2,1,FIFA World Cup,TRUE
+2010-07-02,Uruguay,Ghana,1,1,FIFA World Cup,TRUE
+2010-07-02,Argentina,Germany,0,4,FIFA World Cup,TRUE
+2010-07-02,Paraguay,Spain,0,1,FIFA World Cup,TRUE
+2010-07-07,Uruguay,Netherlands,2,3,FIFA World Cup,TRUE
+2010-07-07,Germany,Spain,0,1,FIFA World Cup,TRUE
+2010-07-10,Uruguay,Germany,2,3,FIFA World Cup,TRUE
+2010-07-11,Netherlands,Spain,0,1,FIFA World Cup,TRUE
+2014-06-13,Brazil,Croatia,3,1,FIFA World Cup,FALSE
+2014-06-13,Mexico,Cameroon,1,0,FIFA World Cup,TRUE
+2014-06-13,Spain,Netherlands,1,5,FIFA World Cup,TRUE
+2014-06-13,Chile,Australia,3,1,FIFA World Cup,TRUE
+2014-06-13,Colombia,Greece,3,0,FIFA World Cup,TRUE
+2014-06-13,Ivory Coast,Japan,2,1,FIFA World Cup,TRUE
+2014-06-13,Uruguay,Costa Rica,1,3,FIFA World Cup,TRUE
+2014-06-13,England,Italy,1,2,FIFA World Cup,TRUE
+2014-06-13,Switzerland,Ecuador,2,1,FIFA World Cup,TRUE
+2014-06-13,France,Honduras,3,0,FIFA World Cup,TRUE
+2014-06-13,Argentina,Bosnia and Herzegovina,2,1,FIFA World Cup,TRUE
+2014-06-13,Iran,Nigeria,0,0,FIFA World Cup,TRUE
+2014-06-13,Germany,Portugal,4,0,FIFA World Cup,TRUE
+2014-06-13,Ghana,United States,1,2,FIFA World Cup,TRUE
+2014-06-13,Belgium,Algeria,2,1,FIFA World Cup,TRUE
+2014-06-13,Russia,South Korea,1,1,FIFA World Cup,TRUE
+2014-06-18,Brazil,Mexico,0,0,FIFA World Cup,FALSE
+2014-06-18,Cameroon,Croatia,0,4,FIFA World Cup,TRUE
+2014-06-18,Australia,Netherlands,2,3,FIFA World Cup,TRUE
+2014-06-18,Spain,Chile,0,2,FIFA World Cup,TRUE
+2014-06-18,Colombia,Ivory Coast,2,1,FIFA World Cup,TRUE
+2014-06-18,Japan,Greece,0,0,FIFA World Cup,TRUE
+2014-06-18,Uruguay,England,2,1,FIFA World Cup,TRUE
+2014-06-18,Italy,Costa Rica,0,1,FIFA World Cup,TRUE
+2014-06-18,Switzerland,France,2,5,FIFA World Cup,TRUE
+2014-06-18,Honduras,Ecuador,1,2,FIFA World Cup,TRUE
+2014-06-18,Argentina,Iran,1,0,FIFA World Cup,TRUE
+2014-06-18,Nigeria,Bosnia and Herzegovina,1,0,FIFA World Cup,TRUE
+2014-06-18,Germany,Ghana,2,2,FIFA World Cup,TRUE
+2014-06-18,United States,Portugal,2,2,FIFA World Cup,TRUE
+2014-06-18,Belgium,Russia,1,0,FIFA World Cup,TRUE
+2014-06-18,South Korea,Algeria,2,4,FIFA World Cup,TRUE
+2014-06-24,Brazil,Cameroon,4,1,FIFA World Cup,FALSE
+2014-06-24,Croatia,Mexico,1,3,FIFA World Cup,TRUE
+2014-06-24,Australia,Spain,0,3,FIFA World Cup,TRUE
+2014-06-24,Netherlands,Chile,2,0,FIFA World Cup,TRUE
+2014-06-24,Japan,Colombia,1,4,FIFA World Cup,TRUE
+2014-06-24,Greece,Ivory Coast,2,1,FIFA World Cup,TRUE
+2014-06-24,Italy,Uruguay,0,1,FIFA World Cup,TRUE
+2014-06-24,Costa Rica,England,0,0,FIFA World Cup,TRUE
+2014-06-24,Honduras,Switzerland,0,3,FIFA World Cup,TRUE
+2014-06-24,Ecuador,France,0,0,FIFA World Cup,TRUE
+2014-06-24,Nigeria,Argentina,2,3,FIFA World Cup,TRUE
+2014-06-24,Bosnia and Herzegovina,Iran,3,1,FIFA World Cup,TRUE
+2014-06-24,United States,Germany,0,1,FIFA World Cup,TRUE
+2014-06-24,Portugal,Ghana,2,1,FIFA World Cup,TRUE
+2014-06-24,South Korea,Belgium,0,1,FIFA World Cup,TRUE
+2014-06-24,Algeria,Russia,1,1,FIFA World Cup,TRUE
+2014-06-29,Brazil,Chile,1,1,FIFA World Cup,FALSE
+2014-06-29,Colombia,Uruguay,2,0,FIFA World Cup,TRUE
+2014-06-29,France,Nigeria,2,0,FIFA World Cup,TRUE
+2014-06-29,Germany,Algeria,2,1,FIFA World Cup,TRUE
+2014-06-29,Netherlands,Mexico,2,1,FIFA World Cup,TRUE
+2014-06-29,Costa Rica,Greece,1,1,FIFA World Cup,TRUE
+2014-06-29,Argentina,Switzerland,1,0,FIFA World Cup,TRUE
+2014-06-29,Belgium,United States,2,1,FIFA World Cup,TRUE
+2014-07-04,France,Germany,0,1,FIFA World Cup,TRUE
+2014-07-04,Brazil,Colombia,2,1,FIFA World Cup,FALSE
+2014-07-04,Argentina,Belgium,1,0,FIFA World Cup,TRUE
+2014-07-04,Netherlands,Costa Rica,0,0,FIFA World Cup,TRUE
+2014-07-08,Brazil,Germany,1,7,FIFA World Cup,FALSE
+2014-07-08,Netherlands,Argentina,0,0,FIFA World Cup,TRUE
+2014-07-12,Brazil,Netherlands,0,3,FIFA World Cup,FALSE
+2014-07-13,Germany,Argentina,1,0,FIFA World Cup,TRUE
+2018-06-15,Russia,Saudi Arabia,5,0,FIFA World Cup,FALSE
+2018-06-15,Egypt,Uruguay,0,1,FIFA World Cup,TRUE
+2018-06-15,Morocco,Iran,0,1,FIFA World Cup,TRUE
+2018-06-15,Portugal,Spain,3,3,FIFA World Cup,TRUE
+2018-06-15,France,Australia,2,1,FIFA World Cup,TRUE
+2018-06-15,Peru,Denmark,0,1,FIFA World Cup,TRUE
+2018-06-15,Argentina,Iceland,1,1,FIFA World Cup,TRUE
+2018-06-15,Croatia,Nigeria,2,0,FIFA World Cup,TRUE
+2018-06-15,Costa Rica,Serbia,0,1,FIFA World Cup,TRUE
+2018-06-15,Brazil,Switzerland,1,1,FIFA World Cup,TRUE
+2018-06-15,Germany,Mexico,0,1,FIFA World Cup,TRUE
+2018-06-15,Sweden,South Korea,1,0,FIFA World Cup,TRUE
+2018-06-15,Belgium,Panama,3,0,FIFA World Cup,TRUE
+2018-06-15,Tunisia,England,1,2,FIFA World Cup,TRUE
+2018-06-15,Colombia,Japan,1,2,FIFA World Cup,TRUE
+2018-06-15,Poland,Senegal,1,2,FIFA World Cup,TRUE
+2018-06-20,Russia,Egypt,3,1,FIFA World Cup,FALSE
+2018-06-20,Uruguay,Saudi Arabia,1,0,FIFA World Cup,TRUE
+2018-06-20,Portugal,Morocco,1,0,FIFA World Cup,TRUE
+2018-06-20,Iran,Spain,0,1,FIFA World Cup,TRUE
+2018-06-20,Denmark,Australia,1,1,FIFA World Cup,TRUE
+2018-06-20,France,Peru,1,0,FIFA World Cup,TRUE
+2018-06-20,Argentina,Croatia,0,3,FIFA World Cup,TRUE
+2018-06-20,Nigeria,Iceland,2,0,FIFA World Cup,TRUE
+2018-06-20,Brazil,Costa Rica,2,0,FIFA World Cup,TRUE
+2018-06-20,Serbia,Switzerland,1,2,FIFA World Cup,TRUE
+2018-06-20,South Korea,Mexico,1,2,FIFA World Cup,TRUE
+2018-06-20,Germany,Sweden,2,1,FIFA World Cup,TRUE
+2018-06-20,Belgium,Tunisia,5,2,FIFA World Cup,TRUE
+2018-06-20,England,Panama,6,1,FIFA World Cup,TRUE
+2018-06-20,Japan,Senegal,2,2,FIFA World Cup,TRUE
+2018-06-20,Poland,Colombia,0,3,FIFA World Cup,TRUE
+2018-06-26,Russia,Uruguay,0,3,FIFA World Cup,FALSE
+2018-06-26,Saudi Arabia,Egypt,2,1,FIFA World Cup,TRUE
+2018-06-26,Iran,Portugal,1,1,FIFA World Cup,TRUE
+2018-06-26,Spain,Morocco,2,2,FIFA World Cup,TRUE
+2018-06-26,Denmark,France,0,0,FIFA World Cup,TRUE
+2018-06-26,Australia,Peru,0,2,FIFA World Cup,TRUE
+2018-06-26,Nigeria,Argentina,1,2,FIFA World Cup,TRUE
+2018-06-26,Iceland,Croatia,1,2,FIFA World Cup,TRUE
+2018-06-26,Serbia,Brazil,0,2,FIFA World Cup,TRUE
+2018-06-26,Switzerland,Costa Rica,2,2,FIFA World Cup,TRUE
+2018-06-26,South Korea,Germany,2,0,FIFA World Cup,TRUE
+2018-06-26,Mexico,Sweden,0,3,FIFA World Cup,TRUE
+2018-06-26,England,Belgium,0,1,FIFA World Cup,TRUE
+2018-06-26,Panama,Tunisia,1,2,FIFA World Cup,TRUE
+2018-06-26,Japan,Poland,0,1,FIFA World Cup,TRUE
+2018-06-26,Senegal,Colombia,0,1,FIFA World Cup,TRUE
+2018-07-01,France,Argentina,4,3,FIFA World Cup,TRUE
+2018-07-01,Uruguay,Portugal,2,1,FIFA World Cup,TRUE
+2018-07-01,Russia,Spain,1,1,FIFA World Cup,FALSE
+2018-07-01,Croatia,Denmark,1,1,FIFA World Cup,TRUE
+2018-07-01,Brazil,Mexico,2,0,FIFA World Cup,TRUE
+2018-07-01,Belgium,Japan,3,2,FIFA World Cup,TRUE
+2018-07-01,Sweden,Switzerland,1,0,FIFA World Cup,TRUE
+2018-07-01,Colombia,England,1,1,FIFA World Cup,TRUE
+2018-07-06,Uruguay,France,0,2,FIFA World Cup,TRUE
+2018-07-06,Brazil,Belgium,1,2,FIFA World Cup,TRUE
+2018-07-06,Sweden,England,0,2,FIFA World Cup,TRUE
+2018-07-06,Russia,Croatia,2,2,FIFA World Cup,FALSE
+2018-07-10,France,Belgium,1,0,FIFA World Cup,TRUE
+2018-07-10,Croatia,England,2,1,FIFA World Cup,TRUE
+2018-07-14,Belgium,England,2,0,FIFA World Cup,TRUE
+2018-07-15,France,Croatia,4,2,FIFA World Cup,TRUE
+2022-11-22,Qatar,Ecuador,0,2,FIFA World Cup,FALSE
+2022-11-22,Senegal,Netherlands,0,2,FIFA World Cup,TRUE
+2022-11-22,England,Iran,6,2,FIFA World Cup,TRUE
+2022-11-22,United States,Wales,1,1,FIFA World Cup,TRUE
+2022-11-22,Argentina,Saudi Arabia,1,2,FIFA World Cup,TRUE
+2022-11-22,Mexico,Poland,0,0,FIFA World Cup,TRUE
+2022-11-22,Denmark,Tunisia,0,0,FIFA World Cup,TRUE
+2022-11-22,France,Australia,4,1,FIFA World Cup,TRUE
+2022-11-22,Germany,Japan,1,2,FIFA World Cup,TRUE
+2022-11-22,Spain,Costa Rica,7,0,FIFA World Cup,TRUE
+2022-11-22,Morocco,Croatia,0,0,FIFA World Cup,TRUE
+2022-11-22,Belgium,Canada,1,0,FIFA World Cup,TRUE
+2022-11-22,Switzerland,Cameroon,1,0,FIFA World Cup,TRUE
+2022-11-22,Brazil,Serbia,2,0,FIFA World Cup,TRUE
+2022-11-22,Uruguay,South Korea,0,0,FIFA World Cup,TRUE
+2022-11-22,Portugal,Ghana,3,2,FIFA World Cup,TRUE
+2022-11-26,Qatar,Senegal,1,3,FIFA World Cup,FALSE
+2022-11-26,Netherlands,Ecuador,1,1,FIFA World Cup,TRUE
+2022-11-26,Wales,Iran,0,2,FIFA World Cup,TRUE
+2022-11-26,England,United States,0,0,FIFA World Cup,TRUE
+2022-11-26,Poland,Saudi Arabia,2,0,FIFA World Cup,TRUE
+2022-11-26,Argentina,Mexico,2,0,FIFA World Cup,TRUE
+2022-11-26,Tunisia,Australia,0,1,FIFA World Cup,TRUE
+2022-11-26,France,Denmark,2,1,FIFA World Cup,TRUE
+2022-11-26,Japan,Costa Rica,0,1,FIFA World Cup,TRUE
+2022-11-26,Spain,Germany,1,1,FIFA World Cup,TRUE
+2022-11-26,Belgium,Morocco,0,2,FIFA World Cup,TRUE
+2022-11-26,Croatia,Canada,4,1,FIFA World Cup,TRUE
+2022-11-26,Cameroon,Serbia,3,3,FIFA World Cup,TRUE
+2022-11-26,Brazil,Switzerland,1,0,FIFA World Cup,TRUE
+2022-11-26,South Korea,Ghana,2,3,FIFA World Cup,TRUE
+2022-11-26,Portugal,Uruguay,2,0,FIFA World Cup,TRUE
+2022-11-30,Qatar,Netherlands,0,2,FIFA World Cup,FALSE
+2022-11-30,Ecuador,Senegal,1,2,FIFA World Cup,TRUE
+2022-11-30,Wales,England,0,3,FIFA World Cup,TRUE
+2022-11-30,Iran,United States,0,1,FIFA World Cup,TRUE
+2022-11-30,Poland,Argentina,0,2,FIFA World Cup,TRUE
+2022-11-30,Saudi Arabia,Mexico,1,2,FIFA World Cup,TRUE
+2022-11-30,Australia,Denmark,1,0,FIFA World Cup,TRUE
+2022-11-30,Tunisia,France,1,0,FIFA World Cup,TRUE
+2022-11-30,Japan,Spain,2,1,FIFA World Cup,TRUE
+2022-11-30,Costa Rica,Germany,2,4,FIFA World Cup,TRUE
+2022-11-30,Croatia,Belgium,0,0,FIFA World Cup,TRUE
+2022-11-30,Canada,Morocco,1,2,FIFA World Cup,TRUE
+2022-11-30,Serbia,Switzerland,2,3,FIFA World Cup,TRUE
+2022-11-30,Cameroon,Brazil,1,0,FIFA World Cup,TRUE
+2022-11-30,Ghana,Uruguay,0,2,FIFA World Cup,TRUE
+2022-11-30,South Korea,Portugal,2,1,FIFA World Cup,TRUE
+2022-12-04,Netherlands,United States,3,1,FIFA World Cup,TRUE
+2022-12-04,Argentina,Australia,2,1,FIFA World Cup,TRUE
+2022-12-04,France,Poland,3,1,FIFA World Cup,TRUE
+2022-12-04,England,Senegal,3,0,FIFA World Cup,TRUE
+2022-12-04,Japan,Croatia,1,1,FIFA World Cup,TRUE
+2022-12-04,Brazil,South Korea,4,1,FIFA World Cup,TRUE
+2022-12-04,Morocco,Spain,0,0,FIFA World Cup,TRUE
+2022-12-04,Portugal,Switzerland,6,1,FIFA World Cup,TRUE
+2022-12-09,Croatia,Brazil,1,1,FIFA World Cup,TRUE
+2022-12-09,Netherlands,Argentina,2,2,FIFA World Cup,TRUE
+2022-12-09,Morocco,Portugal,1,0,FIFA World Cup,TRUE
+2022-12-09,England,France,1,2,FIFA World Cup,TRUE
+2022-12-13,Argentina,Croatia,3,0,FIFA World Cup,TRUE
+2022-12-13,France,Morocco,2,0,FIFA World Cup,TRUE
+2022-12-17,Croatia,Morocco,2,1,FIFA World Cup,TRUE
+2022-12-18,Argentina,France,3,3,FIFA World Cup,TRUE
