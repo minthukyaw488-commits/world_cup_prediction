@@ -1,5 +1,7 @@
 # World Cup Prediction
 
+[![CI](https://github.com/minthukyaw488-commits/world_cup_prediction/actions/workflows/ci.yml/badge.svg?branch=claude%2Fworld-cup-prediction-model-ezv8yf)](https://github.com/minthukyaw488-commits/world_cup_prediction/actions/workflows/ci.yml)
+
 A complete, offline-capable pipeline for predicting international football
 matches and simulating the FIFA World Cup 2026:
 
