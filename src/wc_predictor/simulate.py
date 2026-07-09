@@ -55,7 +55,17 @@ R32_TEMPLATE = [
 
 
 class MatchSampler:
-    """Samples scorelines from the trained Poisson goal models."""
+    """Samples match results, driven by the trained models.
+
+    Win/draw/loss is sampled from the *classifier* (the component whose
+    calibration is actually validated by the backtest); the Poisson goal
+    models then provide a scoreline consistent with that outcome, which the
+    group stage needs for goal-difference tiebreakers. Classifier
+    probabilities are precomputed on a 1-point grid of rating differences so
+    simulation stays fast.
+    """
+
+    GRID_MAX = 1200  # rating-difference grid: [-GRID_MAX, GRID_MAX]
 
     def __init__(self, model: dict, rng: np.random.Generator):
         self.rng = rng
@@ -64,6 +74,17 @@ class MatchSampler:
         self.home_params = (float(ph.intercept_), float(ph.coef_[0]))
         self.away_params = (float(pa.intercept_), float(pa.coef_[0]))
 
+        diffs = np.arange(-self.GRID_MAX, self.GRID_MAX + 1, dtype=float)
+        grid = pd.DataFrame({"elo_diff": diffs, "abs_elo_diff": np.abs(diffs)})
+        self._proba_grid = model["classifier"].predict_proba(
+            grid[model["feature_columns"]]
+        )
+
+    def outcome_probs(self, elo_a: float, elo_b: float) -> np.ndarray:
+        """[P(A wins), P(draw), P(B wins)] on a neutral venue."""
+        idx = int(round(np.clip(elo_a - elo_b, -self.GRID_MAX, self.GRID_MAX)))
+        return self._proba_grid[idx + self.GRID_MAX]
+
     def goal_rates(self, elo_a: float, elo_b: float) -> tuple[float, float]:
         diff = elo_a - elo_b
         lam_a = np.exp(self.home_params[0] + self.home_params[1] * diff)
@@ -71,20 +92,38 @@ class MatchSampler:
         return float(np.clip(lam_a, 0.05, 8.0)), float(np.clip(lam_b, 0.05, 8.0))
 
     def group_match(self, elo_a: float, elo_b: float) -> tuple[int, int]:
+        """Sample outcome from the classifier, then a matching scoreline."""
+        outcome = self.rng.choice(3, p=self.outcome_probs(elo_a, elo_b))
         lam_a, lam_b = self.goal_rates(elo_a, elo_b)
-        return int(self.rng.poisson(lam_a)), int(self.rng.poisson(lam_b))
+        for _ in range(30):  # rejection-sample a scoreline with this outcome
+            ga = int(self.rng.poisson(lam_a))
+            gb = int(self.rng.poisson(lam_b))
+            if np.sign(ga - gb) == 1 - outcome:
+                return ga, gb
+        # Rare fallback: force a minimal consistent scoreline.
+        if outcome == 0:
+            return 1, 0
+        if outcome == 2:
+            return 0, 1
+        return 1, 1
 
     def knockout_winner(self, team_a: str, team_b: str, elo: dict[str, float]) -> str:
         elo_a, elo_b = elo[team_a], elo[team_b]
-        ga, gb = self.group_match(elo_a, elo_b)
-        if ga == gb:  # extra time at a third of the regulation goal rate
-            lam_a, lam_b = self.goal_rates(elo_a, elo_b)
-            ga += int(self.rng.poisson(lam_a / 3.0))
-            gb += int(self.rng.poisson(lam_b / 3.0))
-        if ga == gb:  # penalties: near coin flip, tilted by rating gap
-            p_a = 1.0 / (1.0 + 10.0 ** ((elo_b - elo_a) / 2000.0))
-            return team_a if self.rng.random() < p_a else team_b
-        return team_a if ga > gb else team_b
+        p_win, p_draw, _ = self.outcome_probs(elo_a, elo_b)
+        u = self.rng.random()
+        if u < p_win:
+            return team_a
+        if u >= p_win + p_draw:
+            return team_b
+        # Drawn after 90 minutes: extra time at a third of the goal rate.
+        lam_a, lam_b = self.goal_rates(elo_a, elo_b)
+        ga = int(self.rng.poisson(lam_a / 3.0))
+        gb = int(self.rng.poisson(lam_b / 3.0))
+        if ga != gb:
+            return team_a if ga > gb else team_b
+        # Penalties: near coin flip, tilted by rating gap.
+        p_a = 1.0 / (1.0 + 10.0 ** ((elo_b - elo_a) / 2000.0))
+        return team_a if self.rng.random() < p_a else team_b
 
 
 def simulate_group(teams: list[str], elo: dict[str, float], sampler: MatchSampler):

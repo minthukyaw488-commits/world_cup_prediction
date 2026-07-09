@@ -39,9 +39,14 @@ on earlier tournaments and scored on that year:
 
 | Model                         | Mean log loss | Mean accuracy |
 |-------------------------------|---------------|---------------|
-| Logistic regression (selected)| **1.045**     | **51.5%**     |
-| Gradient boosting             | 1.184         | 45.9%         |
-| Class-frequency baseline      | 1.092         | 41.5%         |
+| Logistic regression (selected)| **1.034**     | **53.3%**     |
+| Gradient boosting             | 1.121         | 48.3%         |
+| Class-frequency baseline      | 1.075         | 41.5%         |
+
+Training rows are *symmetrized* (each match is also included with the two
+sides swapped): which team is listed "home" at a neutral venue is an artifact
+of fixture listing order, and mirroring both removes that bias and makes the
+model exactly symmetric.
 
 Test years: 2010, 2014, 2018, 2022. The model beats the baseline in three of
 the four years; 2022 (Saudi Arabia over Argentina, Japan over Germany and
@@ -115,9 +120,15 @@ data/*.csv ──► data.load_matches ──► elo.run_elo ──► features.
   log loss at this data size.
 - **No leakage**: every feature uses strictly pre-match information; there is
   a test asserting a match's own result cannot influence its own features.
-- **Knockout matches** in the simulator: 90-minute score sampled from the
-  Poisson models; if level, extra time at ⅓ goal rate; if still level, a
-  penalty shootout that tilts slightly with the Elo gap.
+- **Simulation is classifier-driven**: win/draw/loss is sampled from the
+  backtested classifier (via a precomputed probability grid), and the Poisson
+  models then supply a scoreline consistent with that outcome (needed for
+  group tiebreakers). Drawn knockout games go to extra time at ⅓ goal rate,
+  then a penalty shootout that tilts slightly with the Elo gap.
+- **Keeping ratings current**: append real results (e.g. 2026 fixtures as
+  they are played) to `data/extra_matches.csv` and re-run
+  `python -m wc_predictor.train`. `python -m wc_predictor.ratings` prints the
+  resulting Elo table.
 - **Round of 32**: a fixed seeded template pairing winners with best thirds
   and runners-up with each other — a documented simplification of FIFA's
   official third-place allocation tables.

@@ -77,6 +77,51 @@ def test_knockout_simulation(trained_model):
         assert pair.sum() == pytest.approx(1.0)
 
 
+def test_sampler_outcomes_follow_ratings(trained_model):
+    out, _ = trained_model
+    model = joblib.load(out)
+    from wc_predictor.simulate import MatchSampler
+
+    sampler = MatchSampler(model, np.random.default_rng(0))
+    p_even = sampler.outcome_probs(1600.0, 1600.0)
+    p_big = sampler.outcome_probs(1900.0, 1400.0)
+    assert p_even.sum() == pytest.approx(1.0)
+    assert p_big.sum() == pytest.approx(1.0)
+    assert p_even[0] == pytest.approx(p_even[2], abs=5e-3)  # symmetric when equal
+    assert p_big[0] > 0.6  # heavy favourite
+    assert p_big[1] < p_even[1]  # mismatches draw less
+    # Sampled group scorelines agree with the sampled outcome by construction:
+    # over many samples, win share should approximate the classifier's P(win).
+    wins = draws = 0
+    n = 3000
+    for _ in range(n):
+        ga, gb = sampler.group_match(1900.0, 1400.0)
+        wins += ga > gb
+        draws += ga == gb
+    assert wins / n == pytest.approx(p_big[0], abs=0.03)
+    assert draws / n == pytest.approx(p_big[1], abs=0.03)
+
+
+def test_extra_matches_are_appended(tmp_path):
+    import shutil
+
+    from wc_predictor.data import load_matches
+
+    src = data_dir_default()
+    shutil.copy(src / "wc_matches.csv", tmp_path / "wc_matches.csv")
+    base = load_matches(tmp_path)
+    (tmp_path / "extra_matches.csv").write_text(
+        "# comment line\n"
+        "date,home_team,away_team,home_score,away_score,tournament,neutral\n"
+        "2026-06-11,Mexico,South Africa,2,0,FIFA World Cup,FALSE\n"
+    )
+    combined = load_matches(tmp_path)
+    assert len(combined) == len(base) + 1
+    last = combined.iloc[-1]
+    assert last["home_team"] == "Mexico" and last["home_score"] == 2
+    assert not last["neutral"]
+
+
 def test_rating_noise_flattens_probabilities(trained_model):
     out, _ = trained_model
     bracket = data_dir_default() / "example_r16_bracket.csv"

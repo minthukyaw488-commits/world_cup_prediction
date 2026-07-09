@@ -1,0 +1,5 @@
+# Recent results to append to the training data (same columns as
+# wc_matches.csv). Add 2026 fixtures here as they are played, then re-run
+# `python -m wc_predictor.train` to refresh the ratings. Example row:
+# 2026-06-11,Mexico,South Africa,2,0,FIFA World Cup,FALSE
+date,home_team,away_team,home_score,away_score,tournament,neutral

@@ -35,6 +35,28 @@ MIN_PRIOR_MATCHES = 3  # both teams need this much history before a match is tra
 BACKTEST_YEARS = 4  # hold out each of the last N tournament years in turn
 
 
+def mirror(df: pd.DataFrame) -> pd.DataFrame:
+    """Swap the two sides of every match (features and label).
+
+    Which team is 'home' in a neutral-venue row is an artifact of listing
+    order (seeded teams tend to be listed first), and true home advantage is
+    already folded into ``elo_diff``. Training on ``df + mirror(df)`` removes
+    the listing-order bias and makes the fitted model exactly symmetric.
+    """
+    out = df.copy()
+    out["elo_diff"] = -df["elo_diff"]
+    out["label"] = df["label"].map({0: 2, 1: 1, 2: 0})
+    out["home_score"], out["away_score"] = (
+        df["away_score"].to_numpy(),
+        df["home_score"].to_numpy(),
+    )
+    return out
+
+
+def symmetrized(df: pd.DataFrame) -> pd.DataFrame:
+    return pd.concat([df, mirror(df)], ignore_index=True)
+
+
 def make_candidates(seed: int) -> dict:
     return {
         "logistic": make_pipeline(
@@ -61,7 +83,8 @@ def backtest(usable: pd.DataFrame, candidates: dict) -> dict:
         test_df = usable[usable["date"].dt.year == year]
         if len(train_df) < 50 or len(test_df) == 0:
             continue
-        X_tr, y_tr = train_df[FEATURE_COLUMNS], train_df["label"]
+        train_sym = symmetrized(train_df)
+        X_tr, y_tr = train_sym[FEATURE_COLUMNS], train_sym["label"]
         X_te, y_te = test_df[FEATURE_COLUMNS], test_df["label"]
         for name, model in candidates.items():
             fitted = clone(model).fit(X_tr, y_tr)
@@ -107,16 +130,19 @@ def train(data_dir: str | None, model_out: str, seed: int = 42) -> dict:
         key=lambda n: bt["results"][n]["mean_log_loss"],
     )
 
-    # Refit the winning candidate on everything before saving.
-    best = clone(candidates[best_name]).fit(usable[FEATURE_COLUMNS], usable["label"])
+    # Refit the winning candidate on everything (symmetrized) before saving.
+    usable_sym = symmetrized(usable)
+    best = clone(candidates[best_name]).fit(
+        usable_sym[FEATURE_COLUMNS], usable_sym["label"]
+    )
 
     # Scoreline models for the simulator (goals as a function of rating gap).
-    goal_X = usable[["elo_diff"]]
+    goal_X = usable_sym[["elo_diff"]]
     poisson_home = PoissonRegressor(alpha=1e-4, max_iter=1000).fit(
-        goal_X, usable["home_score"]
+        goal_X, usable_sym["home_score"]
     )
     poisson_away = PoissonRegressor(alpha=1e-4, max_iter=1000).fit(
-        goal_X, usable["away_score"]
+        goal_X, usable_sym["away_score"]
     )
 
     metrics = {
