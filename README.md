@@ -151,3 +151,9 @@ tests/                 20 tests (Elo math, leakage, training, simulation)
   placeholders to edit.
 - No player-level information (injuries, squad strength, age curves), no
   bookmaker odds; this is a team-rating model.
+
+  ## Author
+
+**NOVEM (MIN THU KYAW)**
+Medical AI · Konyang University, Daejeon, South Korea
+
